@@ -1,15 +1,15 @@
-package com.example.caisw.kotlintest.ui.function.basics.packageDefine
+package com.example.caisw.kotlintest.ui.module.basics.packageDefine
 
 import com.chad.library.adapter.base.entity.MultiItemEntity
 import com.example.caisw.kotlintest.entities.FunctionCode
 import com.example.caisw.kotlintest.entities.FunctionTitle
-import com.example.caisw.kotlintest.ui.function.FunctionFragment
+import com.example.caisw.kotlintest.ui.module.ModuleFragment
 
 /**
  * 包定义
  * Created by caisw on 2018/1/9.
  */
-class PackageDefineFragment : FunctionFragment() {
+class PackageFragment : ModuleFragment() {
 
     override fun initData() {
         super.initData()

@@ -11,7 +11,7 @@ import com.example.caisw.kotlintest.entities.Level0Item
 import com.example.caisw.kotlintest.entities.Level1Item
 import com.example.caisw.kotlintest.ui.base.BaseActivity
 import com.example.caisw.kotlintest.ui.base.FragmentOpenActivity
-import com.example.caisw.kotlintest.ui.function.FunctionFragment
+import com.example.caisw.kotlintest.ui.module.ModuleFragment
 
 /**
  * 主界面<br/>
@@ -91,7 +91,7 @@ public class MainActivity : BaseActivity() {
 
         val l0_1 = Level0Item("准备开始")
         val l0_1_1 = Level1Item("基本语法")
-        l0_1_1.addSubItem(FunctionFragment.PACKAGE_DEFINE_FRAGMENT)
+        l0_1_1.addSubItem(ModuleFragment.PACKAGE_DEFINE_FRAGMENT)
         l0_1.addSubItem(l0_1_1)
 
         val l0_1_2 = Level1Item("习惯用语")
