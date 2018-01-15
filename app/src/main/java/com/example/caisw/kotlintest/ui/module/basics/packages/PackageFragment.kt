@@ -1,4 +1,4 @@
-package com.example.caisw.kotlintest.ui.module.basics.packageDefine
+package com.example.caisw.kotlintest.ui.module.basics.packages
 
 import com.chad.library.adapter.base.entity.MultiItemEntity
 import com.example.caisw.kotlintest.entities.FunctionCode

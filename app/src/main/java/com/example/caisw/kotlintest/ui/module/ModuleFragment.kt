@@ -8,7 +8,8 @@ import com.example.caisw.kotlintest.R
 import com.example.caisw.kotlintest.adapter.FunctionAdapter
 import com.example.caisw.kotlintest.entities.FragmentData
 import com.example.caisw.kotlintest.ui.base.BaseFragment
-import com.example.caisw.kotlintest.ui.module.basics.packageDefine.PackageFragment
+import com.example.caisw.kotlintest.ui.module.basics.basicTypes.ValueFragment
+import com.example.caisw.kotlintest.ui.module.basics.packages.PackageFragment
 import kotlinx.android.synthetic.main.fragment_function.*
 
 /**
@@ -17,7 +18,8 @@ import kotlinx.android.synthetic.main.fragment_function.*
 open class ModuleFragment : BaseFragment() {
 
     companion object {
-        val PACKAGE_DEFINE_FRAGMENT: FragmentData = FragmentData("包定义", PackageFragment::class.java.name, ModuleFragment.createData("包定义"))
+        val BASICS_PACKAGE_DEFINE_FRAGMENT: FragmentData = FragmentData("包定义", PackageFragment::class.java.name, ModuleFragment.createData("包定义"))
+        val BASICS_VALUE_FRAGMENT: FragmentData = FragmentData("基本类型", ValueFragment::class.java.name, ModuleFragment.createData("基本类型"))
 
         fun createData( title: String): Bundle {
             var data = Bundle()

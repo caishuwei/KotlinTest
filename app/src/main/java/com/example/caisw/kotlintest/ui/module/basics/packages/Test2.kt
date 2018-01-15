@@ -1,4 +1,4 @@
-package com.example.caisw.kotlintest.ui.module.basics.packageDefine
+package com.example.caisw.kotlintest.ui.module.basics.packages
 
 //包导入
 //单独导入包中的某个类，变量，方法。。。。。。
