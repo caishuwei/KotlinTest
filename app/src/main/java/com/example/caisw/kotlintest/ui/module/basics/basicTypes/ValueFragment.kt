@@ -55,15 +55,154 @@ var spaceLine:Int = 999_999_999//使用下划线增加数值常量可读性
 
         operator(listData, 6)
 
+        char(listData, 7)
+
+        boolean(listData, 8)
+
+        array(listData, 9)
+
+        string(listData, 10)
+
         updateFunctionContent(listData)
     }
 
+    private fun string(listData: MutableList<MultiItemEntity>, titleIndex: Int) {
+        listData.add(FunctionTitle("""
+$titleIndex、字符串String
+        字符串
+        """.trimMargin()))
+        val text1 = "等同于java的字符串，\n分行使用转义的\\n"
+        val text2 = """
+    |多行字符串，同Python
+    |可以不转义换行
+    |trimMargin方法可以去除每行前面的缩进
+    |默认采用|标注起始前缀，如果需要使用其他起始前缀，比如<，可以使用trimMargin("<")
+    """.trimMargin()
+
+        listData.add(FunctionCode("""
+$text1
+
+$text2
+
+kotlin支持字符串模板（常用于生成动态网页），在字符串中使用${'$'}变量名插入变量值（toString）
+使用 ${"$ {代码}"}则可以调用方法，将返回的字符串插入字符串模板中
+        """.trimIndent()))
+    }
+
+    /**
+     * 数组
+     */
+    private fun array(listData: MutableList<MultiItemEntity>, titleIndex: Int) {
+        listData.add(FunctionTitle("""
+$titleIndex、数组Array
+        数组在 Kotlin 中由 Array 类表示，有 get 和 set （通过运算符重载为[] ）方法，和 size 属性
+        """.trimMargin()))
+
+        val arr = Array<Int>(3, { index -> index + 1 })
+        arr[0] = 10
+        arr[1] = 2
+
+        val mutableArr = mutableListOf<Int>()
+        mutableArr.add(10)
+        mutableArr.add(2)
+
+        fun printArr(arr: Array<Int>): String {
+            val sb = StringBuilder()
+            sb.append("[")
+            val size = arr.size
+            for (i in 0 until size) {
+                sb.append(arr[i])
+                if (i != size - 1) {
+                    sb.append(",")
+                }
+            }
+            sb.append("]")
+            return sb.toString()
+        }
+
+        listData.add(FunctionCode("""
+1、数组（相当于java的数组）
+        val arr = Array<Int>(3,{index->index+1})
+        arr[0] = 10
+        arr[1] = 2
+arr.size:${arr.size}
+arr:${printArr(arr)}
+
+2、动态数组（相当于java的ArrayList）
+        val mutableArr = mutableListOf<Int>()
+        mutableArr.add(10)
+        mutableArr.add(2)
+mutableArr.size:${mutableArr.size}
+mutableArr:$mutableArr
+
+3、为防止过度装箱，kotlin提供了几个基本数据类型的数组类
+ByteArray, ShortArray, IntArray
+可以使用intArrayOf()等方法构建
+        """.trimIndent()
+        ))
+        intArrayOf()
+    }
+
+
+    /**
+     * 布尔值
+     */
+    private fun boolean(listData: MutableList<MultiItemEntity>, titleIndex: Int) {
+        listData.add(FunctionTitle("""
+$titleIndex、布尔值Boolean
+        与java一样，boolean只有true与false
+        如果是可空类型Boolean?会被装箱
+        """.trimMargin()))
+        var t1 = true
+        var t2 = true
+        var f1 = false
+        listData.add(FunctionCode("""
+        var t1 = true
+        var t2 = true
+        var f1 = false
+
+短路与
+t1&&t2：${t1 && t2}
+
+短路或
+t1||f1：${t1 || f1}
+
+取反
+!t1：${!t1}
+
+        """.trimIndent()))
+
+    }
+
+    /**
+     * 字符
+     */
+    private fun char(listData: MutableList<MultiItemEntity>, titleIndex: Int) {
+        listData.add(FunctionTitle("""
+$titleIndex、字符Char
+        字符不属于数值类型，不能使用 char == 1去与数值类型进行比较
+        可以显示转换为数值类型再去比较
+        """.trimMargin()))
+        var char = 'a'
+        listData.add(FunctionCode("""
+        var char = 'a'
+char强转为Int类型：${char.toInt()}
+
+char.toInt() == 97 ? ${char.toInt() == 97}
+
+        """.trimIndent()))
+
+    }
+
+    /**
+     * 运算符
+     */
     private fun operator(listData: MutableList<MultiItemEntity>, titleIndex: Int) {
         listData.add(FunctionTitle("""
 $titleIndex、运算符
          除了常见的加减乘除运算，Int和Long类型还支持位运算符
         """.trimMargin()))
-        var i:Int = Int.MIN_VALUE or 7
+        var i: Int = Int.MIN_VALUE or 7
         var i2 = i.shl(1)//有符号左移
         var i3 = i shl 1//可以采用中缀形式调用，等同于java的<<，这种写法简单，但kotlin难道是为了与java不同而特地定义这些乱七八糟的东西？闲得蛋疼
         var i4 = i shr 1//有符号右移
@@ -74,6 +213,7 @@ $titleIndex、运算符
         var i9 = i.inv()//按位取反
 
         listData.add(FunctionCode("""
+        var i:Int = Int.MIN_VALUE or 7
 ${outputFormat(i)}
 
         var i2 = i.shl(1)//有符号左移

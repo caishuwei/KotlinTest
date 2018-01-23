@@ -1,14 +1,17 @@
 package com.example.caisw.kotlintest.ui.module
 
 import android.os.Bundle
+import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.view.View
 import com.chad.library.adapter.base.entity.MultiItemEntity
 import com.example.caisw.kotlintest.R
 import com.example.caisw.kotlintest.adapter.FunctionAdapter
 import com.example.caisw.kotlintest.entities.FragmentData
 import com.example.caisw.kotlintest.ui.base.BaseFragment
 import com.example.caisw.kotlintest.ui.module.basics.basicTypes.ValueFragment
+import com.example.caisw.kotlintest.ui.module.basics.controlFlow.ControlFlowFragment
 import com.example.caisw.kotlintest.ui.module.basics.packages.PackageFragment
 import kotlinx.android.synthetic.main.fragment_function.*
 
@@ -20,6 +23,7 @@ open class ModuleFragment : BaseFragment() {
     companion object {
         val BASICS_PACKAGE_DEFINE_FRAGMENT: FragmentData = FragmentData("包定义", PackageFragment::class.java.name, ModuleFragment.createData("包定义"))
         val BASICS_VALUE_FRAGMENT: FragmentData = FragmentData("基本类型", ValueFragment::class.java.name, ModuleFragment.createData("基本类型"))
+        val CONTROL_FLOW_FRAGMENT: FragmentData = FragmentData("流程控制", ControlFlowFragment::class.java.name, ModuleFragment.createData("流程控制"))
 
         fun createData( title: String): Bundle {
             var data = Bundle()
@@ -37,6 +41,7 @@ open class ModuleFragment : BaseFragment() {
     override fun initView() {
         super.initView()
         recycler_view.layoutManager = LinearLayoutManager(activity)
+
     }
 
     override fun initAdapter() {

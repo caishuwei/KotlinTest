@@ -8,11 +8,13 @@ android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.example.caisw.kotlintest"
-        minSdkVersion 14
+        minSdkVersion 17
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        renderscriptTargetApi 24
+        renderscriptSupportModeEnabled true
     }
     buildTypes {
         release {
@@ -32,4 +34,6 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:26.0.0'
 
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
+
+    implementation 'com.wonderkiln:blurkit:1.0.0'
 }

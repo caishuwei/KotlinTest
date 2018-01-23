@@ -92,6 +92,7 @@ public class MainActivity : BaseActivity() {
         val l0_1 = Level0Item("准备开始")
         val l0_1_1 = Level1Item("基本语法")
         l0_1_1.addSubItem(ModuleFragment.BASICS_VALUE_FRAGMENT)
+        l0_1_1.addSubItem(ModuleFragment.CONTROL_FLOW_FRAGMENT)
         l0_1_1.addSubItem(ModuleFragment.BASICS_PACKAGE_DEFINE_FRAGMENT)
         l0_1.addSubItem(l0_1_1)
 
