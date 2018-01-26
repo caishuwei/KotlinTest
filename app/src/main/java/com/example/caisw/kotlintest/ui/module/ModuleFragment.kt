@@ -13,6 +13,7 @@ import com.example.caisw.kotlintest.ui.base.BaseFragment
 import com.example.caisw.kotlintest.ui.module.basics.basicTypes.ValueFragment
 import com.example.caisw.kotlintest.ui.module.basics.controlFlow.ControlFlowFragment
 import com.example.caisw.kotlintest.ui.module.basics.packages.PackageFragment
+import com.example.caisw.kotlintest.ui.module.basics.returnAndJump.ReturnAndJumpFragment
 import kotlinx.android.synthetic.main.fragment_function.*
 
 /**
@@ -23,7 +24,8 @@ open class ModuleFragment : BaseFragment() {
     companion object {
         val BASICS_PACKAGE_DEFINE_FRAGMENT: FragmentData = FragmentData("包定义", PackageFragment::class.java.name, ModuleFragment.createData("包定义"))
         val BASICS_VALUE_FRAGMENT: FragmentData = FragmentData("基本类型", ValueFragment::class.java.name, ModuleFragment.createData("基本类型"))
-        val CONTROL_FLOW_FRAGMENT: FragmentData = FragmentData("流程控制", ControlFlowFragment::class.java.name, ModuleFragment.createData("流程控制"))
+        val BASICS_CONTROL_FLOW_FRAGMENT: FragmentData = FragmentData("流程控制", ControlFlowFragment::class.java.name, ModuleFragment.createData("流程控制"))
+        val BASICS_RETURN_AND_JUMP_FRAGMENT: FragmentData = FragmentData("返回与跳转", ReturnAndJumpFragment::class.java.name, ModuleFragment.createData("返回与跳转"))
 
         fun createData( title: String): Bundle {
             var data = Bundle()

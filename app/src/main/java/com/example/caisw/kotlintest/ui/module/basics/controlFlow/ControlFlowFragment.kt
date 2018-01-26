@@ -17,11 +17,76 @@ class ControlFlowFragment : ModuleFragment() {
         biaodashi_if(listData, 1)
         biaodashi_when(listData, 2)
         biaodashi_for(listData, 3)
+        biaodashi_while(listData, 4)
 
         updateFunctionContent(listData)
     }
 
+    private fun biaodashi_while(listData: MutableList<MultiItemEntity>, i: Int) {
+        listData.add(FunctionTitle("""
+            |$i、while循环
+            |       与java无差别，不多说（还好没有为了追求差别而特地搞出差别）
+        """.trimMargin()))
+    }
+
     private fun biaodashi_for(listData: MutableList<MultiItemEntity>, i: Int) {
+        listData.add(FunctionTitle("""
+            |$i、for循环
+            |       kotlin for循环支持使用 in关键字遍历提供迭代器的对象（如集合，范围等）
+        """.trimMargin()))
+
+        val strArr = arrayOf("One", "Two", "Three", "Four", "Five", "Six", "Seven")
+
+        listData.add(FunctionCode("""
+            |创建一个字符串数组用于遍历
+            |        val strArr = arrayOf("One", "Two", "Three", "Four", "Five", "Six", "Seven")
+            |
+            |       for (item in strArr) {
+            |           //遍历数组的每个元素
+            |           listData.add(FunctionCode("${"\$item"}"))
+            |       }
+            |
+        """.trimMargin()))
+
+        for (item in strArr) {
+            //遍历数组的每个元素
+            listData.add(FunctionCode("$item"))
+        }
+        listData.add(FunctionCode("""
+            |
+            |        for (item in strArr.indices) {
+            |            //遍历下标
+            |            listData.add(FunctionCode("index:${"\$item"} ,value:${"\${strArr[item]}"}"))
+            |        }
+            |
+        """.trimMargin()))
+        for (item in strArr.indices) {
+            //遍历下标
+            listData.add(FunctionCode("index:$item ,value:${strArr[item]}"))
+        }
+
+        listData.add(FunctionCode("""
+            |
+            |        for (item in strArr.withIndex()) {
+            |            //值与下标一起遍历
+            |            listData.add(FunctionCode("index:${"\${item.index}"} ,value:${"\${item.value}"}"))
+            |        }
+            |
+            |也支持这种写法
+            |        for ((index,value) in strArr.withIndex()) {
+            |            //值与下标一起遍历
+            |            listData.add(FunctionCode("index:${"\$index"} ,value:${"\$value"}"))
+            |        }
+        """.trimMargin()))
+        for (item in strArr.withIndex()) {
+            //值与下标一起遍历
+            listData.add(FunctionCode("index:${item.index} ,value:${item.value}"))
+        }
+//        for ((index,value) in strList.withIndex()) {
+//            //值与下标一起遍历
+//            listData.add(FunctionCode("index:$index ,value:$value"))
+//        }
+
 
     }
 
