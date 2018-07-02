@@ -7,7 +7,7 @@ import com.example.caisw.kotlintest.adapter.MultiItemEntityValue
 /**
  * Created by caisw on 2018/1/9.
  */
-class Level0Item : AbstractExpandableItem<Level1Item>, MultiItemEntity {
+class Level0Item : AbstractExpandableItem<FragmentData>, MultiItemEntity {
 
     var title: String
         private set

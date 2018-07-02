@@ -12,16 +12,6 @@ import kotlinx.android.synthetic.main.fragment_test.*
  */
 class TestFragment : BaseFragment() {
 
-    companion object {
-
-        fun createBundle(tag: String): Bundle {
-            val data = Bundle()
-            data.putString("tag",tag)
-            return data
-        }
-
-    }
-
     override fun getContentViewResId(): Int {
         return R.layout.fragment_test
     }
@@ -32,6 +22,5 @@ class TestFragment : BaseFragment() {
 
     override fun initData() {
         super.initData()
-        tv_test_text.text = "test for ${this.arguments.getString("tag")}"
     }
 }

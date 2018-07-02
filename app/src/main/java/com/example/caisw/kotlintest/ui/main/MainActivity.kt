@@ -8,7 +8,6 @@ import com.example.caisw.kotlintest.adapter.MainAdapter
 import com.example.caisw.kotlintest.adapter.MultiItemEntityValue
 import com.example.caisw.kotlintest.entities.FragmentData
 import com.example.caisw.kotlintest.entities.Level0Item
-import com.example.caisw.kotlintest.entities.Level1Item
 import com.example.caisw.kotlintest.ui.base.BaseActivity
 import com.example.caisw.kotlintest.ui.base.FragmentOpenActivity
 import com.example.caisw.kotlintest.ui.module.ModuleFragment
@@ -68,10 +67,6 @@ public class MainActivity : BaseActivity() {
                     true -> mainAdapter?.collapse(position)
                     false -> mainAdapter?.expand(position)
                 }
-                MultiItemEntityValue.TYPE_LEVEL_1 -> when ((mainAdapter?.getItem(position) as Level1Item).isExpanded) {
-                    true -> mainAdapter?.collapse(position)
-                    false -> mainAdapter?.expand(position)
-                }
                 MultiItemEntityValue.TYPE_FRAGMENT_DATA -> openFragment(mainAdapter?.getItem(position) as FragmentData)
             }
         }
@@ -90,89 +85,23 @@ public class MainActivity : BaseActivity() {
         val data: MutableList<MultiItemEntity> = mutableListOf()
 
         val l0_1 = Level0Item("准备开始")
-        val l0_1_1 = Level1Item("基本语法")
-        l0_1_1.addSubItem(ModuleFragment.BASICS_VALUE_FRAGMENT)
-        l0_1_1.addSubItem(ModuleFragment.BASICS_CONTROL_FLOW_FRAGMENT)
-        l0_1_1.addSubItem(ModuleFragment.BASICS_PACKAGE_DEFINE_FRAGMENT)
-        l0_1_1.addSubItem(ModuleFragment.BASICS_RETURN_AND_JUMP_FRAGMENT)
-        l0_1.addSubItem(l0_1_1)
-
-        val l0_1_2 = Level1Item("习惯用语")
-        l0_1.addSubItem(l0_1_2)
-        val l0_1_3 = Level1Item("编码风格")
-        l0_1.addSubItem(l0_1_3)
         data.add(l0_1)
 
         val l0_2 = Level0Item("基础")
-        val l0_2_1 = Level1Item("基本类型")
-        l0_2.addSubItem(l0_2_1)
-        val l0_2_2 = Level1Item("包")
-        l0_2.addSubItem(l0_2_2)
-        val l0_2_3 = Level1Item("控制流")
-        l0_2.addSubItem(l0_2_3)
-        val l0_2_4 = Level1Item("返回与跳转")
-        l0_2.addSubItem(l0_2_4)
+        l0_2.addSubItem(ModuleFragment.BASICS_VALUE_FRAGMENT)
+        l0_2.addSubItem(ModuleFragment.BASICS_PACKAGE_DEFINE_FRAGMENT)
+        l0_2.addSubItem(ModuleFragment.BASICS_CONTROL_FLOW_FRAGMENT)
+        l0_2.addSubItem(ModuleFragment.BASICS_RETURN_AND_JUMP_FRAGMENT)
         data.add(l0_2)
 
         val l0_3 = Level0Item("类和对象")
-        val l0_3_1 = Level1Item("类和继承")
-        l0_3.addSubItem(l0_3_1)
-        val l0_3_2 = Level1Item("属性和字段")
-        l0_3.addSubItem(l0_3_2)
-        val l0_3_3 = Level1Item("接口")
-        l0_3.addSubItem(l0_3_3)
-        val l0_3_4 = Level1Item("可见性修饰词")
-        l0_3.addSubItem(l0_3_4)
-        val l0_3_5 = Level1Item("扩展")
-        l0_3.addSubItem(l0_3_5)
-        val l0_3_6 = Level1Item("数据对象")
-        l0_3.addSubItem(l0_3_6)
-        val l0_3_7 = Level1Item("泛型")
-        l0_3.addSubItem(l0_3_7)
-        val l0_3_8 = Level1Item("嵌套类")
-        l0_3.addSubItem(l0_3_8)
-        val l0_3_9 = Level1Item("枚举类")
-        l0_3.addSubItem(l0_3_9)
-        val l0_3_10 = Level1Item("对象表达式和声明")
-        l0_3.addSubItem(l0_3_10)
-        val l0_3_11 = Level1Item("代理模式")
-        l0_3.addSubItem(l0_3_11)
-        val l0_3_12 = Level1Item("代理属性")
-        l0_3.addSubItem(l0_3_12)
+        l0_3.addSubItem(ModuleFragment.CLASS_CLASS_AND_EXTENDS_FRAGMENT)
         data.add(l0_3)
 
         val l0_4 = Level0Item("函数和lambda表达式")
-        val l0_4_1 = Level1Item("函数")
-        l0_4.addSubItem(l0_4_1)
-        val l0_4_2 = Level1Item("高阶函数和lambda表达式")
-        l0_4.addSubItem(l0_4_2)
-        val l0_4_3 = Level1Item("内联函数")
-        l0_4.addSubItem(l0_4_3)
         data.add(l0_4)
 
         val l0_5 = Level0Item("其他")
-        val l0_5_1 = Level1Item("多重声明")
-        l0_5.addSubItem(l0_5_1)
-        val l0_5_2 = Level1Item("Ranges")
-        l0_5.addSubItem(l0_5_2)
-        val l0_5_3 = Level1Item("类型检查和自动转换")
-        l0_5.addSubItem(l0_5_3)
-        val l0_5_4 = Level1Item("This表达式")
-        l0_5.addSubItem(l0_5_4)
-        val l0_5_5 = Level1Item("等式")
-        l0_5.addSubItem(l0_5_5)
-        val l0_5_6 = Level1Item("运算符重载")
-        l0_5.addSubItem(l0_5_6)
-        val l0_5_7 = Level1Item("空安全")
-        l0_5.addSubItem(l0_5_7)
-        val l0_5_8 = Level1Item("异常")
-        l0_5.addSubItem(l0_5_8)
-        val l0_5_9 = Level1Item("注解")
-        l0_5.addSubItem(l0_5_9)
-        val l0_5_10 = Level1Item("反射")
-        l0_5.addSubItem(l0_5_10)
-        val l0_5_11 = Level1Item("动态类型")
-        l0_5.addSubItem(l0_5_11)
         data.add(l0_5)
 
         mainAdapter?.setNewData(data)

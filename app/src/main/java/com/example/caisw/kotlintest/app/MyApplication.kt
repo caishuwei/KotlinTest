@@ -8,8 +8,12 @@ import android.app.Application
 
 public class MyApplication : Application() {
 
-    override fun onCreate() {
-        super.onCreate()
+    companion object {
+        lateinit var instance: MyApplication
+    }
+
+    init {
+        MyApplication.instance = this
     }
 
 }

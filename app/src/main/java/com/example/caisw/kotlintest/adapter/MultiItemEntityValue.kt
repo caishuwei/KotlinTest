@@ -7,7 +7,6 @@ class MultiItemEntityValue {
     companion object {
 
         val TYPE_LEVEL_0 = 0
-        val TYPE_LEVEL_1 = 1
         val TYPE_FRAGMENT_DATA = 2
 
         /**

@@ -12,7 +12,7 @@ import com.example.caisw.kotlintest.util.ActivityHelper
  *  碎片界面
  * Created by caisw on 2018/1/8.
  */
-class FragmentOpenActivity : BaseActivity() {
+open class FragmentOpenActivity : BaseActivity() {
     //companion object 内部书写静态变量与方法
     companion object {
 
